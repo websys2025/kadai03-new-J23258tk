@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="urf-8">
-        <title>演習課題3-4：自動販売機</title>
-    </head>
-    <body>
-        <script>
-            // 商品一覧を記録する連想配列の配列
-            const items =  [
-                { id: 1, name: "緑茶", price: 140, stock: 5 },
-                { id: 2, name: "水", price: 100, stock: 14 },
-                { id: 3, name: "オレンジジュース", price: 150, stock: 7 },
-                { id: 4, name: "リンゴジュース", price: 150, stock: 9 },
-                { id: 5, name: "炭酸水", price: 120, stock: 1 },
-                { id: 6, name: "サイダー", price: 160, stock: 3 },
-                { id: 7, name: "コーヒー", price: 170, stock: 8 },
-                { id: 8, name: "紅茶", price: 140, stock: 6 }
-            ]
+<head>
+    <meta charset="utf-8">
+    <title>演習課題3-4：自動販売機</title>
+</head>
+<body>
+    <script>
+        const items = [
+            { id: 1, name: "緑茶", price: 140, stock: 5 },
+            { id: 2, name: "水", price: 100, stock: 14 },
+            { id: 3, name: "オレンジジュース", price: 150, stock: 7 },
+            { id: 4, name: "リンゴジュース", price: 150, stock: 9 },
+            { id: 5, name: "炭酸水", price: 120, stock: 1 },
+            { id: 6, name: "サイダー", price: 160, stock: 3 },
+            { id: 7, name: "コーヒー", price: 170, stock: 8 },
+            { id: 8, name: "紅茶", price: 140, stock: 6 }
+        ];
 
-            // 商品一覧の表示関数
-            function showItemList() {
-                console.log("商品は以下の" + items.length + "種類です。");
-
-                // 配列の内容を項目毎に出力
-                // ここにコードを書く
-                console.log(""); // 空行の出力
+        function showItemList() {
+            console.log("商品は以下の" + items.length + "種類です。");
+            for (let item of items) {
+                console.log(`商品番号: ${item.id}, 商品名: ${item.name}, 金額: ${item.price}, 在庫数: ${item.stock}`);
             }
+            console.log("");
+        }
 
-            // 商品購入の関数
-            function buyItem(no) {
-                // ここにコードを書く
-                showItemList(); // 商品一覧の表示関数呼び出し
+        function buyItem(no) {
+            
+            const item = items[no - 1];
+            if (item.stock > 0) {
+                console.log(`商品番号: ${item.id}, 商品名: ${item.name}を購入します。`);
+                item.stock--;
+            } else {
+                console.log("在庫がありません。");
             }
+            showItemList();
+        }
 
-            showItemList(); // 商品一覧の表示関数呼び出し
-            buyItem(3); // 商品購入の関数呼び出し
-
-            buyItem(5); // 商品購入の関数呼び出し
-            buyItem(5); // 商品購入の関数呼び出し
-
-        </script>
-    </body>
+        showItemList();
+        buyItem(3);
+        buyItem(5);
+        buyItem(5);
+    </script>
+</body>
 </html>
 <!-- 
 期待される出力例
