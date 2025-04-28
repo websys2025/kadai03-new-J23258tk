@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="urf-8">
-        <title>演習課題3-3</title>
-    </head>
-    <body>
-        <script>
-            const members = new Object(); 
-            members["A001"] = "山田太郎"; 
-            members["A002"] = "井上花子";
-            members["J001"] = "情報次郎";
-            members["J002"] = "設計士郎";
+<head>
+    <meta charset="utf-8">
+    <title>演習課題3-3</title>
+</head>
+<body>
+    <script>
+        let members = {
+            A001: "山田太郎",
+            B002: "佐藤花子",
+            C003: "鈴木次郎",
+            J002: "設計士郎"
+        };
 
-            // ここに一覧を表示する処理を書く
-        </script>
-    </body>
+        for (let key in members) {
+            console.log(key + ": " + members[key]);
+        }
+    </script>
+</body>
 </html>
-<!--
 期待される出力例
 ----------------
 A001: 山田太郎
